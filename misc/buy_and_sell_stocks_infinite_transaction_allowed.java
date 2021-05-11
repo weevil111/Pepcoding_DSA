@@ -11,23 +11,36 @@ class Main {
         for(i = 0; i < n; i++){
         	arr[i] = sc.nextInt();
         }
-        boolean transact = true;
-        for(i = 1; i < n; i++){
-        	if(arr[i] < arr[i-1]){
-        		if(transact){
-	        		ans += profit;
-	        		transact = false;
-	        		profit = 0;
-        		}
+        // boolean transact = true;
+        // for(i = 1; i < n; i++){
+        // 	if(arr[i] < arr[i-1]){
+        // 		if(transact){
+	       // 		ans += profit;
+	       // 		transact = false;
+	       // 		profit = 0;
+        // 		}
+        // 	}else{
+        // 		profit += arr[i] - arr[i-1];
+        // 		transact = true;
+        // 	}
+        // }
+        // if(profit > 0){
+        // 	ans += profit;
+        // }
+        // System.out.println(ans);
+        
+        // Alternatively
+        int bd = 0, sd = 0; // buy date and sell date
+        for( i = 1; i < n; i++){
+        	if(arr[i] >= arr[i-1]){
+        		sd++;
         	}else{
-        		profit += arr[i] - arr[i-1];
-        		transact = true;
+        		profit += arr[sd] - arr[bd];
+        		bd=sd=i;
         	}
         }
-        if(profit > 0){
-        	ans += profit;
-        }
-        System.out.println(ans);
+        profit += arr[sd] - arr[bd]; // if there was no dip in the last
+        System.out.println(profit);
     }
 
 }
