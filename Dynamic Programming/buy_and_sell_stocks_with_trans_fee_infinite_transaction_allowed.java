@@ -46,9 +46,9 @@ class Main {
     		if(maxProfit-arr[i] > wallet){
     			// Here we are reducing the all the future stock prices by maxProfit
     			// now if we make profit, the current profit is automatically included thus acheiving cumulative profit
-    			// For example if we made profit of 10 rs then 60 rs stock will be considered 50rs.
-    			// That way if we sell at 100rs, we 50 rs profit (10rs + 50rs) whereing 10rs was previous profit that we hid in
-    			// buy stock price by reducing it by amount equivalent of previous profit.
+    			// For example if we made profit of 30 rs then 60 rs stock will be considered 50rs.
+    			// That way if we sell at 100rs, then 70 rs profit (30rs from previous + 40rs from 100-60) whereing 30rs was previous profit that we hid in
+    			// "buy price of stock" by reducing it by amount equivalent to previous profit.
     			wallet = maxProfit-arr[i]; 
     		}
     		if(currProfit > maxProfit){
