@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-class Main {
+public class Main {
   public static class Node {
     int data;
     Node next;
@@ -87,12 +87,10 @@ class Main {
     public void addFirst(int val) {
       Node newNode = new Node();
       newNode.data = val;
-      newNode.next = null;
+      newNode.next = head;
+      head = newNode;
       if(size == 0){
-      	head = tail = newNode;
-      }else{
-      	newNode.next = head;
-      	head = newNode;
+      	tail = newNode;
       }
       size++;
     }
