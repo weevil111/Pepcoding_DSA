@@ -98,7 +98,7 @@ class Main {
     }
 
     public void addAt(int idx, int val){
-      if(idx > size){
+      if(idx < 0 || idx > size){
       	System.out.println("Invalid arguments");
       }else{
       	Node newNode = new Node();
