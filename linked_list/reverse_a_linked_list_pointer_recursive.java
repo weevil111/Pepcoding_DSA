@@ -378,11 +378,25 @@ public class Main {
     }
  
     private void reversePRHelper(Node node){
-      // write your code here
+      if(node.next == null){
+      	return;
+      }
+      reversePRHelper(node.next);
+      node.next.next = node;
     }
  
     public void reversePR(){
-      // write your code here
+      if(head==null){
+      	return;
+      }
+      reversePRHelper(head);
+ 
+      // Important line - The next pointer of first element was not modified in the recursive function
+      head.next = null; 
+ 
+      Node temp = head;
+      head = tail;
+      tail = temp;
     }
   }
  
